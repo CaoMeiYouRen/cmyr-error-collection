@@ -3,7 +3,6 @@
   "version": "0.1.0",
   "description": "一个基于 leancloud 的简易全局错误捕获工具",
   "author": "CaoMeiYouRen",
-  "private": true,
   "license": "MIT",
   "main": "dist/index.js",
   "module": "dist/index.esm.js",
