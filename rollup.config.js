@@ -98,7 +98,7 @@ export default [
         plugins: getPlugins({
             isBrowser: true,
             isDeclaration: false,
-            isMin: false,
+            isMin: true,
         }),
     },
     {
