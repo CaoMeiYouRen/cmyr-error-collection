@@ -7,14 +7,14 @@
 ```ts
 // Node 端
 // cjs 版本
-const { ErrorCollection } = require('@cao-mei-you-ren/error-collection') // index.js
+const { ErrorCollection } = require('cmyr-error-collection') // index.js
 // esm 版本
-import { ErrorCollection } from '@cao-mei-you-ren/error-collection' // index.esm.js
+import { ErrorCollection } from 'cmyr-error-collection' // index.esm.js
 
 //浏览器端
 // 非 esm 版本 index.umd.js 
 // <script src="./index.umd.js">
-const ErrorCollection = window.CaoMeiYouRenErrorCollection.ErrorCollection
+const ErrorCollection = window.CmyrErrorCollection.ErrorCollection
 // esm 版本 index.esm.browser.js  <script type="module">
 import { ErrorCollection } from './index.esm.browser.js'
 
