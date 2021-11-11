@@ -1,12 +1,13 @@
 {
   "name": "error-collection",
   "version": "0.1.0",
-  "description": "基于 semantic-release 的自动化 release rollup项目模板",
+  "description": "一个基于 leancloud 的简易全局错误捕获工具",
   "author": "CaoMeiYouRen",
   "private": true,
   "license": "MIT",
   "main": "dist/index.js",
   "module": "dist/index.esm.js",
+  "browser": "dist/index.umd.js",
   "types": "dist/index.d.ts",
   "files": [
     "dist"
@@ -27,7 +28,9 @@
     "rm": "rimraf node_modules",
     "start": "node ./dist/index",
     "release": "semantic-release",
-    "commit": "git add . && git cz"
+    "commit": "git add . && git cz",
+    "test": "ts-node-dev test/index.test.ts",
+    "browser": "browser-sync start --server --index index.html --files \"dist/**/*.js\"  --open local"
   },
   "devDependencies": {
     "@microsoft/api-extractor": "^7.18.19",
@@ -63,7 +66,9 @@
     "typescript": "^4.4.4",
     "validate-commit-msg": "^2.14.0"
   },
-  "dependencies": {},
+  "dependencies": {
+    "leancloud-storage": "^4.12.0"
+  },
   "peerDependencies": {},
   "config": {
     "commitizen": {

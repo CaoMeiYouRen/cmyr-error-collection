@@ -2,7 +2,7 @@
     "$schema": "https://developer.microsoft.com/json-schemas/api-extractor/v7/api-extractor.schema.json",
     "mainEntryPointFilePath": "<projectFolder>/dist/index.d.ts",
     "apiReport": {
-        "enabled": true,
+        "enabled": false,
         "reportFolder": "<projectFolder>/temp/"
     },
     "docModel": {
@@ -18,12 +18,12 @@
     "messages": {
         "compilerMessageReporting": {
             "default": {
-                "logLevel": "warning"
+                "logLevel": "none"
             }
         },
         "extractorMessageReporting": {
             "default": {
-                "logLevel": "warning",
+                "logLevel": "none",
                 "addToApiReportFile": true
             },
             "ae-missing-release-tag": {

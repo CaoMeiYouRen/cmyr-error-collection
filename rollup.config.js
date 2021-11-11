@@ -88,7 +88,7 @@ export default [
     },
     {
         input: 'src/index.ts',
-        external,
+        // external,
         output: {
             file: 'dist/index.umd.js', // 生成 umd
             format: 'umd',
@@ -96,9 +96,9 @@ export default [
             sourcemap: true,
         },
         plugins: getPlugins({
-            isBrowser: false,
+            isBrowser: true,
             isDeclaration: false,
-            isMin: true,
+            isMin: false,
         }),
     },
     {
@@ -116,18 +116,18 @@ export default [
             isMin: false,
         }),
     },
-    // { //"browser": "dist/index.browser.js",
-    //     input: 'src/index.ts',
-    //     output: {
-    //         file: 'dist/index.browser.js', // 生成 browser
-    //         format: 'umd',
-    //         name: outputName,
-    //         sourcemap: true,
-    //     },
-    //     plugins: getPlugins({
-    //         isBrowser: true,
-    //         isDeclaration: false,
-    //         isMin: true,
-    //     }),
-    // },
+    {
+        input: 'src/index.ts',
+        output: {
+            file: 'dist/index.esm.browser.js', // 生成 esm browser
+            format: 'esm',
+            name: outputName,
+            sourcemap: true,
+        },
+        plugins: getPlugins({
+            isBrowser: true,
+            isDeclaration: false,
+            isMin: true,
+        }),
+    },
 ]
