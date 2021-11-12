@@ -1,5 +1,12 @@
 # cmyr-error-collection
 
+## [1.0.3](https://github.com/CaoMeiYouRen/error-collection/compare/v1.0.2...v1.0.3) (2021-11-12)
+
+
+### 🐛 Bug 修复
+
+* 优化 前端string Error；补充上报 location.href ([ac477a1](https://github.com/CaoMeiYouRen/error-collection/commit/ac477a1))
+
 ## [1.0.2](https://github.com/CaoMeiYouRen/error-collection/compare/v1.0.1...v1.0.2) (2021-11-11)
 
 
