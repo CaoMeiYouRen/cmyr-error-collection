@@ -64,8 +64,12 @@ export class ErrorCollection {
     private static initWebErrorHandle() {
         if (globalThis.addEventListener) {
             globalThis.addEventListener('error', (eventError) => {
-                const error = eventError.error
-                if (!(error instanceof Error)) {
+                let error: Error
+                if (eventError.error instanceof Error) {
+                    error = eventError.error
+                } else if (typeof eventError.error === 'string') {
+                    error = new Error(eventError.error)
+                } else {
                     console.error(error)
                     return
                 }
@@ -81,6 +85,7 @@ export class ErrorCollection {
                         userAgent: navigator.userAgent,
                         language: navigator.language,
                         platform: navigator.platform,
+                        href: location.href,
                     },
                 })
                 this.pushError(info)
