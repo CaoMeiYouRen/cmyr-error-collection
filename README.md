@@ -1,4 +1,4 @@
-# @cao-mei-you-ren/error-collection
+# cmyr-error-collection
 
 一个基于 leancloud 的简易全局错误捕获工具，会将未全局捕获的错误上报到 leancloud。
 
