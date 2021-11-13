@@ -29,7 +29,7 @@
     "release": "semantic-release",
     "commit": "git add . && git cz",
     "test": "ts-node-dev test/index.test.ts",
-    "browser": "browser-sync start --server --index index.html --files \"dist/**/*.js\"  --open local"
+    "browser": "browser-sync start --server --index test/index.html --files \"test/index.html, dist/**/*.js\"  --open local"
   },
   "devDependencies": {
     "@microsoft/api-extractor": "^7.18.19",
