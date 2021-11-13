@@ -1,7 +1,9 @@
-import * as AV from 'leancloud-storage'
+import { AV, AvOption } from './models/AV'
 import { ErrorInfo } from './models/ErrorInfo'
-export { ErrorInfo }
-export type InitOption = Parameters<typeof AV.init>[0] & {
+
+export { AvOption, ErrorInfo }
+
+export type InitOption = AvOption & {
     /**
      * 项目名称
      */
@@ -36,21 +38,19 @@ export class ErrorCollection {
 
     public static async pushError(info: ErrorInfo) {
         try {
-
-            const obj = new AV.Object('ErrorInfo')
-            for (const key in info) {
-                obj.set(key, (info as any)[key])
+            const obj = {
+                ...info,
+                projectName: this.projectName,
+                collectTime: new Date(),
+                ACL: { // ACL 只读
+                    '*': {
+                        read: true,
+                    },
+                },
             }
-            obj.set('projectName', this.projectName)
-            obj.set('collectTime', new Date())
-
-            const acl = new AV.ACL()
-            acl.setPublicReadAccess(true) // 允许公开读取
-            acl.setPublicWriteAccess(false) // 禁止公开写入
-            obj.setACL(acl)
 
             try {
-                await obj.save()
+                await AV.createObject('ErrorInfo', obj)
                 return true
             } catch (error) {
                 console.error(error)
@@ -71,7 +71,6 @@ export class ErrorCollection {
                 userAgent: navigator.userAgent,
                 language: navigator.language,
                 platform: navigator.platform,
-
             })
             globalThis.addEventListener('error', (eventError) => {
                 let error: Error
@@ -96,7 +95,7 @@ export class ErrorCollection {
                 this.pushError(info)
             }, true)
 
-            window.addEventListener('unhandledrejection', (event) => {
+            globalThis.addEventListener('unhandledrejection', (event) => {
                 const reason = event.reason
                 let error: Error
                 if (reason instanceof Error) {

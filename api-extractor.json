@@ -6,7 +6,7 @@
         "reportFolder": "<projectFolder>/temp/"
     },
     "docModel": {
-        "enabled": true
+        "enabled": false
     },
     "dtsRollup": {
         "enabled": true,
@@ -24,7 +24,7 @@
         "extractorMessageReporting": {
             "default": {
                 "logLevel": "none",
-                "addToApiReportFile": true
+                "addToApiReportFile": false
             },
             "ae-missing-release-tag": {
                 "logLevel": "none"
