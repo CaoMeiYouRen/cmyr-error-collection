@@ -1,5 +1,12 @@
 # cmyr-error-collection
 
+# [1.1.0](https://github.com/CaoMeiYouRen/error-collection/compare/v1.0.4...v1.1.0) (2021-11-13)
+
+
+### ✨ 新功能
+
+* 采用 axios 替换 leancloud-storage，大幅减少包体积 ([558f4c3](https://github.com/CaoMeiYouRen/error-collection/commit/558f4c3))
+
 ## [1.0.4](https://github.com/CaoMeiYouRen/error-collection/compare/v1.0.3...v1.0.4) (2021-11-13)
 
 
