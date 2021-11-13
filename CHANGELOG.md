@@ -1,5 +1,13 @@
 # cmyr-error-collection
 
+## [1.0.4](https://github.com/CaoMeiYouRen/error-collection/compare/v1.0.3...v1.0.4) (2021-11-13)
+
+
+### 🐛 Bug 修复
+
+* 修改 browser 脚本；pushError 返回值必定为 Promise<boolean> ([24d2aab](https://github.com/CaoMeiYouRen/error-collection/commit/24d2aab))
+* 新增 上报浏览器 Promise 异常 ([417468a](https://github.com/CaoMeiYouRen/error-collection/commit/417468a))
+
 ## [1.0.3](https://github.com/CaoMeiYouRen/error-collection/compare/v1.0.2...v1.0.3) (2021-11-12)
 
 
