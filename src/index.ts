@@ -64,6 +64,15 @@ export class ErrorCollection {
 
     private static initWebErrorHandle() {
         if (globalThis.addEventListener) {
+            const getBrowserInfo = () => ({
+                appCodeName: navigator.appCodeName,
+                appName: navigator.appName,
+                appVersion: navigator.appVersion,
+                userAgent: navigator.userAgent,
+                language: navigator.language,
+                platform: navigator.platform,
+
+            })
             globalThis.addEventListener('error', (eventError) => {
                 let error: Error
                 if (eventError.error instanceof Error) {
@@ -80,12 +89,31 @@ export class ErrorCollection {
                     message: error.message,
                     stack: error.stack,
                     extraData: {
-                        appCodeName: navigator.appCodeName,
-                        appName: navigator.appName,
-                        appVersion: navigator.appVersion,
-                        userAgent: navigator.userAgent,
-                        language: navigator.language,
-                        platform: navigator.platform,
+                        browser: getBrowserInfo(),
+                        href: location.href,
+                    },
+                })
+                this.pushError(info)
+            }, true)
+
+            window.addEventListener('unhandledrejection', (event) => {
+                const reason = event.reason
+                let error: Error
+                if (reason instanceof Error) {
+                    error = reason
+                } else if (typeof reason === 'string') {
+                    error = new Error(reason)
+                } else {
+                    console.error('unhandledRejection', reason)
+                    return
+                }
+                const info = new ErrorInfo({
+                    type: 'Web',
+                    name: error.name,
+                    message: error.message,
+                    stack: error.stack,
+                    extraData: {
+                        browser: getBrowserInfo(),
                         href: location.href,
                     },
                 })
@@ -134,7 +162,7 @@ export class ErrorCollection {
                 })
                 this.pushError(info)
             })
-            globalThis.process.on('unhandledRejection', (reason: any, p) => {
+            globalThis.process.on('unhandledRejection', (reason: any) => {
                 let error: Error
                 if (reason instanceof Error) {
                     error = reason
