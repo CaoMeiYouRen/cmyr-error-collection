@@ -16,7 +16,6 @@ export class AV {
     private static baseURL?: string
     private static isInit: boolean = false
 
-
     public static init(option: AvOption) {
         Object.assign(this, option)
         this.isInit = true
