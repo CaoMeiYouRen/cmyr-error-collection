@@ -1,7 +1,8 @@
 import { AV, AvOption } from './models/AV'
 import { ErrorInfo } from './models/ErrorInfo'
+import { errorFormat } from './utils/helper'
 
-export { AvOption, ErrorInfo }
+export { AvOption, ErrorInfo, errorFormat }
 
 export type InitOption = AvOption & {
     /**
@@ -73,13 +74,9 @@ export class ErrorCollection {
                 platform: navigator.platform,
             })
             globalThis.addEventListener('error', (eventError) => {
-                let error: Error
-                if (eventError.error instanceof Error) {
-                    error = eventError.error
-                } else if (typeof eventError.error === 'string') {
-                    error = new Error(eventError.error)
-                } else {
-                    console.error(error)
+                const error: Error = errorFormat(eventError.error)
+                if (!error) {
+                    console.error(eventError.error)
                     return
                 }
                 const info = new ErrorInfo({
@@ -96,14 +93,9 @@ export class ErrorCollection {
             }, true)
 
             globalThis.addEventListener('unhandledrejection', (event) => {
-                const reason = event.reason
-                let error: Error
-                if (reason instanceof Error) {
-                    error = reason
-                } else if (typeof reason === 'string') {
-                    error = new Error(reason)
-                } else {
-                    console.error('unhandledRejection', reason)
+                const error: Error = errorFormat(event.reason)
+                if (!error) {
+                    console.error('unhandledRejection', event.reason)
                     return
                 }
                 const info = new ErrorInfo({
@@ -145,9 +137,10 @@ export class ErrorCollection {
                     cpuNum,
                 }
             }
-            globalThis.process.on('uncaughtException', (error) => {
-                if (!(error instanceof Error)) {
-                    console.error('uncaughtException', error)
+            globalThis.process.on('uncaughtException', (err) => {
+                const error: Error = errorFormat(err)
+                if (!error) {
+                    console.error('uncaughtException', err)
                     return
                 }
                 const info = new ErrorInfo({
@@ -162,12 +155,8 @@ export class ErrorCollection {
                 this.pushError(info)
             })
             globalThis.process.on('unhandledRejection', (reason: any) => {
-                let error: Error
-                if (reason instanceof Error) {
-                    error = reason
-                } else if (typeof reason === 'string') {
-                    error = new Error(reason)
-                } else {
+                const error: Error = errorFormat(reason)
+                if (!error) {
                     console.error('unhandledRejection', reason)
                     return
                 }
