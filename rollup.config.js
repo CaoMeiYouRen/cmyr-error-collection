@@ -127,6 +127,20 @@ export default [
         plugins: getPlugins({
             isBrowser: true,
             isDeclaration: false,
+            isMin: false,
+        }),
+    },
+    {
+        input: 'src/index.ts',
+        output: {
+            file: 'dist/index.esm.browser.min.js', // 生成 esm browser
+            format: 'esm',
+            name: outputName,
+            sourcemap: true,
+        },
+        plugins: getPlugins({
+            isBrowser: true,
+            isDeclaration: false,
             isMin: true,
         }),
     },
