@@ -1,5 +1,12 @@
 # cmyr-error-collection
 
+## [1.1.1](https://github.com/CaoMeiYouRen/error-collection/compare/v1.1.0...v1.1.1) (2021-11-14)
+
+
+### 🐛 Bug 修复
+
+* 修复 在浏览器环境下的 process is not defined BUG ([8574e8b](https://github.com/CaoMeiYouRen/error-collection/commit/8574e8b))
+
 # [1.1.0](https://github.com/CaoMeiYouRen/error-collection/compare/v1.0.4...v1.1.0) (2021-11-13)
 
 
