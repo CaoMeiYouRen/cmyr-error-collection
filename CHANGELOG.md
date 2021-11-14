@@ -1,5 +1,12 @@
 # cmyr-error-collection
 
+## [1.1.3](https://github.com/CaoMeiYouRen/error-collection/compare/v1.1.2...v1.1.3) (2021-11-14)
+
+
+### 🐛 Bug 修复
+
+* 优化 Error 的格式化 ([1313a09](https://github.com/CaoMeiYouRen/error-collection/commit/1313a09))
+
 ## [1.1.2](https://github.com/CaoMeiYouRen/error-collection/compare/v1.1.1...v1.1.2) (2021-11-14)
 
 
