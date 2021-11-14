@@ -14,12 +14,21 @@ export class AV {
     private static appId: string
     private static appKey: string
     private static baseURL?: string
+    private static isInit: boolean = false
+
 
     public static init(option: AvOption) {
         Object.assign(this, option)
+        this.isInit = true
     }
 
     public static async request(config: AjaxConfig) {
+        if (!this.isInit) {
+            throw new Error('cmyr-error-collection 未初始化！')
+        }
+        if (!this.appId || !this.appKey) {
+            throw new Error('appId 或 appKey 为空！')
+        }
         const timestamp = Date.now()
         return ajax({
             baseURL: this.baseURL || 'https://yrvulqtr.api.lncldglobal.com/1.1',
