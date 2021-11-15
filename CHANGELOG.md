@@ -1,5 +1,12 @@
 # cmyr-error-collection
 
+# [1.2.0](https://github.com/CaoMeiYouRen/error-collection/compare/v1.1.3...v1.2.0) (2021-11-15)
+
+
+### ✨ 新功能
+
+* 新增 vueErrorHandler；优化代码结构 ([e4fc400](https://github.com/CaoMeiYouRen/error-collection/commit/e4fc400))
+
 ## [1.1.3](https://github.com/CaoMeiYouRen/error-collection/compare/v1.1.2...v1.1.3) (2021-11-14)
 
 
