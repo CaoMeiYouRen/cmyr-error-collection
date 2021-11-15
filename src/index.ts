@@ -1,6 +1,6 @@
 import { AV, AvOption } from './models/AV'
 import { ErrorInfo } from './models/ErrorInfo'
-import { errorFormat } from './utils/helper'
+import { errorFormat, getBrowserInfo, getCpuInfo } from './utils/helper'
 
 export { AvOption, ErrorInfo, errorFormat }
 
@@ -33,8 +33,8 @@ export class ErrorCollection {
         this.projectName = projectName
         this.description = description
 
-        this.initWebErrorHandle()
-        this.initNodeErrorHandle()
+        this.initWebErrorHandler()
+        this.initNodeErrorHandler()
     }
 
     public static async pushError(info: ErrorInfo) {
@@ -63,16 +63,28 @@ export class ErrorCollection {
         }
     }
 
-    private static initWebErrorHandle() {
+    public static vueErrorHandler(err: unknown, instance: any, info: string) {
+        const error: Error = errorFormat(err)
+        if (!error) {
+            console.error(err)
+            return
+        }
+        this.pushError({
+            type: 'Web',
+            name: error.name || 'VueError',
+            message: error.message,
+            stack: error.stack,
+            extraData: {
+                info,
+                browser: getBrowserInfo(),
+                href: location.href,
+            },
+        })
+    }
+
+    private static initWebErrorHandler() {
         if (globalThis.addEventListener) {
-            const getBrowserInfo = () => ({
-                appCodeName: navigator.appCodeName,
-                appName: navigator.appName,
-                appVersion: navigator.appVersion,
-                userAgent: navigator.userAgent,
-                language: navigator.language,
-                platform: navigator.platform,
-            })
+
             globalThis.addEventListener('error', (eventError) => {
                 const error: Error = errorFormat(eventError.error)
                 if (!error) {
@@ -113,30 +125,8 @@ export class ErrorCollection {
         }
     }
 
-    private static initNodeErrorHandle() {
+    private static initNodeErrorHandler() {
         if (globalThis.process) {
-            // eslint-disable-next-line @typescript-eslint/no-var-requires
-            const os = require('os')
-            const getCpuInfo = () => {
-                const hostname = os.hostname() // 操作系统的主机名
-                const type = os.type() // 操作系统名
-                const platform = os.platform() // 编译时的操作系统名
-                const arch = os.arch() // 操作系统 CPU 架构
-                const release = os.release() // 操作系统的发行版本
-                const totalmem = os.totalmem() // 系统内存总量
-                const freemem = os.freemem() // 系统空闲内存量
-                const cpuNum = os.cpus().length // CPU 数量
-                return {
-                    hostname,
-                    type,
-                    platform,
-                    arch,
-                    release,
-                    totalmem,
-                    freemem,
-                    cpuNum,
-                }
-            }
             globalThis.process.on('uncaughtException', (err) => {
                 const error: Error = errorFormat(err)
                 if (!error) {
