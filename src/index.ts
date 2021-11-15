@@ -1,8 +1,8 @@
 import { AV, AvOption } from './models/AV'
-import { ErrorInfo } from './models/ErrorInfo'
-import { errorFormat, getBrowserInfo, getCpuInfo } from './utils/helper'
+import { ErrorInfo, ErrorMeta, ErrorType } from './models/ErrorInfo'
+import { errorFormat, getBrowserInfo, getCpuInfo, getRuntimeEnv } from './utils/helper'
 
-export { AvOption, ErrorInfo, errorFormat }
+export { AvOption, ErrorInfo, errorFormat, ErrorMeta, ErrorType }
 
 export type InitOption = AvOption & {
     /**
@@ -37,7 +37,22 @@ export class ErrorCollection {
         this.initNodeErrorHandler()
     }
 
-    public static async pushError(info: ErrorInfo) {
+    public static async pushError(err: unknown, meta: ErrorMeta = { type: getRuntimeEnv() }) {
+        console.error(err)
+        const error: Error = errorFormat(err)
+        if (!error) {
+            return false
+        }
+        const info = new ErrorInfo({
+            ...meta,
+            name: error.name,
+            message: error.message,
+            stack: error.stack,
+        })
+        return this.pushErrorInfo(info)
+    }
+
+    public static async pushErrorInfo(info: ErrorInfo) {
         try {
             const obj = {
                 ...info,
@@ -63,17 +78,9 @@ export class ErrorCollection {
         }
     }
 
-    public static vueErrorHandler(err: unknown, instance: any, info: string) {
-        const error: Error = errorFormat(err)
-        if (!error) {
-            console.error(err)
-            return
-        }
-        this.pushError({
+    public static vueErrorHandler(error: unknown, instance: any, info: string) {
+        this.pushError(error, {
             type: 'Web',
-            name: error.name || 'VueError',
-            message: error.message,
-            stack: error.stack,
             extraData: {
                 info,
                 browser: getBrowserInfo(),
@@ -85,83 +92,54 @@ export class ErrorCollection {
     private static initWebErrorHandler() {
         if (globalThis.addEventListener) {
 
+            const getExtraData = () => ({
+                browser: getBrowserInfo(),
+                href: location.href,
+            })
+
             globalThis.addEventListener('error', (eventError) => {
-                const error: Error = errorFormat(eventError.error)
-                if (!error) {
-                    console.error(eventError.error)
-                    return
-                }
-                const info = new ErrorInfo({
+                const error: Error = eventError.error
+                this.pushError(error, {
                     type: 'Web',
-                    name: error.name,
-                    message: error.message,
-                    stack: error.stack,
                     extraData: {
-                        browser: getBrowserInfo(),
-                        href: location.href,
+                        ...getExtraData(),
                     },
                 })
-                this.pushError(info)
             }, true)
 
             globalThis.addEventListener('unhandledrejection', (event) => {
-                const error: Error = errorFormat(event.reason)
-                if (!error) {
-                    console.error('unhandledRejection', event.reason)
-                    return
-                }
-                const info = new ErrorInfo({
+                const error: Error = event.reason
+                this.pushError(error, {
                     type: 'Web',
-                    name: error.name,
-                    message: error.message,
-                    stack: error.stack,
                     extraData: {
-                        browser: getBrowserInfo(),
-                        href: location.href,
+                        ...getExtraData(),
                     },
                 })
-                this.pushError(info)
             }, true)
         }
     }
 
     private static initNodeErrorHandler() {
         if (globalThis.process) {
-            globalThis.process.on('uncaughtException', (err) => {
-                const error: Error = errorFormat(err)
-                if (!error) {
-                    console.error('uncaughtException', err)
-                    return
-                }
-                const info = new ErrorInfo({
+
+            globalThis.process.on('uncaughtException', (error) => {
+                this.pushError(error, {
                     type: 'Node',
-                    name: error.name,
-                    message: error.message,
-                    stack: error.stack,
                     extraData: {
                         os: getCpuInfo(),
                     },
                 })
-                this.pushError(info)
             })
+
             globalThis.process.on('unhandledRejection', (reason: any) => {
-                const error: Error = errorFormat(reason)
-                if (!error) {
-                    console.error('unhandledRejection', reason)
-                    return
-                }
-                const info = new ErrorInfo({
+                const error: Error = reason
+                this.pushError(error, {
                     type: 'Node',
-                    name: error.name,
-                    message: error.message,
-                    stack: error.stack,
                     extraData: {
                         os: getCpuInfo(),
                     },
                 })
-                this.pushError(info)
             })
         }
     }
-
 }

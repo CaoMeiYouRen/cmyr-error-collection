@@ -1,3 +1,5 @@
+import { ErrorType } from '@/models/ErrorInfo'
+
 /**
  * 只处理 Error 和 string 类型的错误，并将 string 类型的包装为 Error 类型，其余返回 null
  * @param error
@@ -45,4 +47,17 @@ export function getCpuInfo() {
         freemem,
         cpuNum,
     }
+}
+
+/**
+ *  获取执行环境
+ */
+export function getRuntimeEnv(): ErrorType {
+    if (globalThis.window) {
+        return 'Web'
+    }
+    if (globalThis.process) {
+        return 'Node'
+    }
+    return 'Unknown'
 }
