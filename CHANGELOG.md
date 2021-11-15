@@ -1,5 +1,12 @@
 # cmyr-error-collection
 
+## [1.2.1](https://github.com/CaoMeiYouRen/error-collection/compare/v1.2.0...v1.2.1) (2021-11-15)
+
+
+### 🐛 Bug 修复
+
+* 优化错误上报逻辑 ([aa48c5e](https://github.com/CaoMeiYouRen/error-collection/commit/aa48c5e))
+
 # [1.2.0](https://github.com/CaoMeiYouRen/error-collection/compare/v1.1.3...v1.2.0) (2021-11-15)
 
 
