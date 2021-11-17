@@ -126,6 +126,7 @@ export class ErrorCollection {
                 this.pushError(error, {
                     type: 'Node',
                     extraData: {
+                        nodeVersion: process.versions.node,
                         os: getCpuInfo(),
                     },
                 })
@@ -136,6 +137,7 @@ export class ErrorCollection {
                 this.pushError(error, {
                     type: 'Node',
                     extraData: {
+                        nodeVersion: process.versions.node,
                         os: getCpuInfo(),
                     },
                 })

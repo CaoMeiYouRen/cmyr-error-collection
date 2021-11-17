@@ -37,6 +37,7 @@ export function getCpuInfo() {
     const totalmem = os.totalmem() // 系统内存总量
     const freemem = os.freemem() // 系统空闲内存量
     const cpuNum = os.cpus().length // CPU 数量
+    const uptime = os.uptime() // 启动时间
     return {
         hostname,
         type,
@@ -46,6 +47,7 @@ export function getCpuInfo() {
         totalmem,
         freemem,
         cpuNum,
+        uptime,
     }
 }
 
