@@ -1,5 +1,12 @@
 # cmyr-error-collection
 
+## [1.2.2](https://github.com/CaoMeiYouRen/error-collection/compare/v1.2.1...v1.2.2) (2021-11-17)
+
+
+### 🐛 Bug 修复
+
+* 新增 nodeVersion、uptime ([b55e986](https://github.com/CaoMeiYouRen/error-collection/commit/b55e986))
+
 ## [1.2.1](https://github.com/CaoMeiYouRen/error-collection/compare/v1.2.0...v1.2.1) (2021-11-15)
 
 
