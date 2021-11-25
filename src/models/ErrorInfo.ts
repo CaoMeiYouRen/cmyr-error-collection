@@ -1,6 +1,8 @@
+import { uuid } from '@/utils/helper'
+
 export type ErrorType = 'Web' | 'Node' | 'Unknown'
 
-export class ErrorMeta {
+export interface ErrorMeta {
     /**
      *  错误类型 Web/Node/...
      */
@@ -12,13 +14,18 @@ export class ErrorMeta {
     extraData?: any
 }
 
-export class ErrorInfo extends ErrorMeta {
+export class ErrorInfo implements ErrorMeta {
     constructor(obj?: ErrorInfo) {
-        super()
         if (obj) {
             Object.assign(this, obj)
         }
     }
+
+    uuid?: string = uuid()
+
+    type: ErrorType
+
+    extraData?: any
 
     name?: string
     /**
