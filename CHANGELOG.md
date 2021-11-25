@@ -1,5 +1,12 @@
 # cmyr-error-collection
 
+## [1.2.3](https://github.com/CaoMeiYouRen/error-collection/compare/v1.2.2...v1.2.3) (2021-11-25)
+
+
+### 🐛 Bug 修复
+
+* errorInfo 新增 uuid ([981b9ff](https://github.com/CaoMeiYouRen/error-collection/commit/981b9ff))
+
 ## [1.2.2](https://github.com/CaoMeiYouRen/error-collection/compare/v1.2.1...v1.2.2) (2021-11-17)
 
 
