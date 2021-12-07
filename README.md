@@ -1,10 +1,36 @@
-# cmyr-error-collection
+<h1 align="center">cmyr-error-collection </h1>
+<p>
+  <a href="https://www.npmjs.com/package/cmyr-error-collection" target="_blank">
+    <img alt="Version" src="https://img.shields.io/npm/v/cmyr-error-collection.svg">
+  </a>
+  <a href="https://github.com/CaoMeiYouRen/error-collection/actions?query=workflow%3ARelease" target="_blank">
+    <img alt="GitHub Workflow Status" src="https://img.shields.io/github/workflow/status/CaoMeiYouRen/error-collection/Release" /></a>
+  <img alt="node-current"  src="https://img.shields.io/node/v/cmyr-error-collection" />
+  <a href="https://github.com/CaoMeiYouRen/error-collection" target="_blank">
+    <img alt="Documentation" src="https://img.shields.io/badge/documentation-yes-brightgreen.svg" />
+  </a>
+  <a href="https://github.com/CaoMeiYouRen/error-collection/blob/master/LICENSE" target="_blank">
+    <img alt="License: MIT" src="https://img.shields.io/badge/License-MIT-yellow.svg" />
+  </a>
+</p>
+> 一个基于 leancloud 的简易全局错误捕获工具，会将未全局捕获的错误上报到 leancloud。
 
-一个基于 leancloud 的简易全局错误捕获工具，会将未全局捕获的错误上报到 leancloud。
+### 🏠 [主页](https://github.com/CaoMeiYouRen/error-collection)
 
 
+## 依赖要求
 
-```ts
+- node >=12
+
+## 安装
+
+```sh
+yarn install
+```
+
+## 使用
+
+```typescript
 // Node 端
 // cjs 版本
 const { ErrorCollection } = require('cmyr-error-collection') // index.js
@@ -24,6 +50,28 @@ ErrorCollection.init({
     appId: 'xxxxx',
     appKey: 'yyyy',
 })
-
 ```
 
+## 作者
+
+
+👤 **CaoMeiYouRen**
+
+* Website: [https://blog.cmyr.ltd/](https://blog.cmyr.ltd/)
+* GitHub: [@CaoMeiYouRen](https://github.com/CaoMeiYouRen)
+
+## 🤝贡献
+
+欢迎Contributions, issues and feature!<br />如有问题请查看 [issues page](https://github.com/CaoMeiYouRen/error-collection/issues). 
+
+## 支持
+
+如果觉得这个项目有用的话请给一颗⭐️，非常感谢
+
+## 📝 License
+
+Copyright © 2021 [CaoMeiYouRen](https://github.com/ CaoMeiYouRen).<br />
+This project is [MIT](https://github.com/CaoMeiYouRen/error-collection/blob/master/LICENSE) licensed.
+
+***
+_This README was generated with ❤️ by [readme-md-generator](https://github.com/kefranabg/readme-md-generator)_
