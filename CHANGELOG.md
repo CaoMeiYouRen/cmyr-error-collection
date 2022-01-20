@@ -1,5 +1,12 @@
 # cmyr-error-collection
 
+## [1.2.4](https://github.com/CaoMeiYouRen/error-collection/compare/v1.2.3...v1.2.4) (2022-01-20)
+
+
+### 🐛 Bug 修复
+
+* 修复 部分情况下 globalThis.process.on 和 globalThis.addEventListener 不是 function 的 Bug ([20e95e9](https://github.com/CaoMeiYouRen/error-collection/commit/20e95e9))
+
 ## [1.2.3](https://github.com/CaoMeiYouRen/error-collection/compare/v1.2.2...v1.2.3) (2021-11-25)
 
 
