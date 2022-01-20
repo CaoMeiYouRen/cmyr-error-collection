@@ -90,7 +90,7 @@ export class ErrorCollection {
     }
 
     private static initWebErrorHandler() {
-        if (globalThis.addEventListener) {
+        if (typeof globalThis.addEventListener === 'function') {
 
             const getExtraData = () => ({
                 browser: getBrowserInfo(),
@@ -120,7 +120,7 @@ export class ErrorCollection {
     }
 
     private static initNodeErrorHandler() {
-        if (globalThis.process) {
+        if (globalThis.process && typeof globalThis.process.on === 'function') {
 
             globalThis.process.on('uncaughtException', (error) => {
                 this.pushError(error, {
