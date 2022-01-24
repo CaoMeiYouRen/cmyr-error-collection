@@ -79,7 +79,7 @@ export class ErrorCollection {
     }
 
     public static vueErrorHandler(error: unknown, instance: any, info: string) {
-        this.pushError(error, {
+        ErrorCollection.pushError(error, {
             type: 'Web',
             extraData: {
                 info,
