@@ -1,5 +1,12 @@
 # cmyr-error-collection
 
+## [1.2.6](https://github.com/CaoMeiYouRen/cmyr-error-collection/compare/v1.2.5...v1.2.6) (2022-01-24)
+
+
+### 🐛 Bug 修复
+
+* 更新依赖；修复 safe-json-type 依赖被打包进来的 bug ([462b83e](https://github.com/CaoMeiYouRen/cmyr-error-collection/commit/462b83e))
+
 ## [1.2.5](https://github.com/CaoMeiYouRen/cmyr-error-collection/compare/v1.2.4...v1.2.5) (2022-01-24)
 
 

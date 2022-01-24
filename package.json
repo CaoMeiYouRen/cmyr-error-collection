@@ -1,6 +1,6 @@
 {
   "name": "cmyr-error-collection",
-  "version": "1.2.5",
+  "version": "1.2.6",
   "description": "一个基于 leancloud 的简易全局错误捕获工具",
   "author": "CaoMeiYouRen",
   "license": "MIT",
