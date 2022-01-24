@@ -1,5 +1,12 @@
 # cmyr-error-collection
 
+## [1.2.5](https://github.com/CaoMeiYouRen/cmyr-error-collection/compare/v1.2.4...v1.2.5) (2022-01-24)
+
+
+### 🐛 Bug 修复
+
+* 修复 vueErrorHandler 的 this 指向不对的问题 ([ead27f7](https://github.com/CaoMeiYouRen/cmyr-error-collection/commit/ead27f7))
+
 ## [1.2.4](https://github.com/CaoMeiYouRen/error-collection/compare/v1.2.3...v1.2.4) (2022-01-20)
 
 
