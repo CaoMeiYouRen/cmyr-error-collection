@@ -1,5 +1,12 @@
 # cmyr-error-collection
 
+## [1.2.7](https://github.com/CaoMeiYouRen/cmyr-error-collection/compare/v1.2.6...v1.2.7) (2022-01-25)
+
+
+### 🐛 Bug 修复
+
+* 修复 safe-json-type 在 Node.js 端的问题 ([2564638](https://github.com/CaoMeiYouRen/cmyr-error-collection/commit/2564638))
+
 ## [1.2.6](https://github.com/CaoMeiYouRen/cmyr-error-collection/compare/v1.2.5...v1.2.6) (2022-01-24)
 
 
