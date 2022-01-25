@@ -1,5 +1,5 @@
 import md5 from 'md5'
-import { SafeJsonType } from 'safe-json-type/dist/browser.esm.min'
+import { SafeJsonType } from 'safe-json-type/dist/browser.esm'
 import { ajax, AjaxConfig } from '@/utils/ajax'
 
 export interface AvOption {
