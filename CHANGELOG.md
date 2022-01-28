@@ -1,5 +1,12 @@
 # cmyr-error-collection
 
+## [1.2.9](https://github.com/CaoMeiYouRen/cmyr-error-collection/compare/v1.2.8...v1.2.9) (2022-01-28)
+
+
+### 🐛 Bug 修复
+
+* 添加了兜底 message ([3368ba0](https://github.com/CaoMeiYouRen/cmyr-error-collection/commit/3368ba0))
+
 ## [1.2.8](https://github.com/CaoMeiYouRen/cmyr-error-collection/compare/v1.2.7...v1.2.8) (2022-01-25)
 
 
