@@ -98,7 +98,7 @@ export class ErrorCollection {
             })
 
             globalThis.addEventListener('error', (eventError) => {
-                const error: Error = eventError.error
+                const error: Error | string = eventError.error || eventError.message
                 this.pushError(error, {
                     type: 'Web',
                     extraData: {
