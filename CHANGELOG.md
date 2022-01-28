@@ -1,5 +1,12 @@
 # cmyr-error-collection
 
+## [1.2.11](https://github.com/CaoMeiYouRen/cmyr-error-collection/compare/v1.2.10...v1.2.11) (2022-01-28)
+
+
+### 🐛 Bug 修复
+
+* 修复 axios headers 默认值引发的全局污染问题 ([32f5cad](https://github.com/CaoMeiYouRen/cmyr-error-collection/commit/32f5cad))
+
 ## [1.2.10](https://github.com/CaoMeiYouRen/cmyr-error-collection/compare/v1.2.9...v1.2.10) (2022-01-28)
 
 
