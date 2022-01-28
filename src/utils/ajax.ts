@@ -1,5 +1,8 @@
 import axios, { AxiosResponse, Method } from 'axios'
 
+const service = axios.create({ headers: {} })
+service.defaults.headers = {} as any
+
 export interface AjaxConfig {
     url: string
     query?: Record<string, unknown>
@@ -21,7 +24,7 @@ export async function ajax(config: AjaxConfig): Promise<AxiosResponse<any, any>>
 
     try {
         const { url, query = {}, data = {}, method = 'GET', headers = {}, baseURL } = config
-        const resp = await axios(url, {
+        const resp = await service(url, {
             method,
             headers,
             params: query,
