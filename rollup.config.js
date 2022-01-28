@@ -30,7 +30,7 @@ function getPlugins({ isBrowser = false, isMin = false, isDeclaration = false })
             esModuleInterop: true,
             allowSyntheticDefaultImports: true,
             declaration: isDeclaration,
-            sourceMap: true,
+            sourceMap: false,
         }),
     )
     plugins.push(
@@ -90,7 +90,7 @@ export default defineConfig([
             file: 'dist/index.js', // 生成 cjs
             format: 'cjs',
             name: outputName,
-            sourcemap: true,
+            sourcemap: false,
         },
         plugins: getPlugins({
             isBrowser: false,
@@ -105,7 +105,7 @@ export default defineConfig([
             file: 'dist/index.umd.js', // 生成 umd
             format: 'umd',
             name: outputName,
-            sourcemap: true,
+            sourcemap: false,
         },
         plugins: getPlugins({
             isBrowser: true,
@@ -120,7 +120,7 @@ export default defineConfig([
             file: 'dist/index.esm.js', // 生成 esm
             format: 'esm',
             name: outputName,
-            sourcemap: true,
+            sourcemap: false,
         },
         plugins: getPlugins({
             isBrowser: false,
@@ -134,7 +134,7 @@ export default defineConfig([
             file: 'dist/index.esm.browser.js', // 生成 esm browser
             format: 'esm',
             name: outputName,
-            sourcemap: true,
+            sourcemap: false,
         },
         plugins: getPlugins({
             isBrowser: true,
@@ -148,7 +148,7 @@ export default defineConfig([
             file: 'dist/index.esm.browser.min.js', // 生成 esm browser
             format: 'esm',
             name: outputName,
-            sourcemap: true,
+            sourcemap: false,
         },
         plugins: getPlugins({
             isBrowser: true,
