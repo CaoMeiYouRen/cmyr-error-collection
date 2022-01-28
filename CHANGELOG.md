@@ -1,5 +1,12 @@
 # cmyr-error-collection
 
+## [1.2.8](https://github.com/CaoMeiYouRen/cmyr-error-collection/compare/v1.2.7...v1.2.8) (2022-01-25)
+
+
+### 🐛 Bug 修复
+
+* 更新 safe-json-type 版本 ([13c3d3a](https://github.com/CaoMeiYouRen/cmyr-error-collection/commit/13c3d3a))
+
 ## [1.2.7](https://github.com/CaoMeiYouRen/cmyr-error-collection/compare/v1.2.6...v1.2.7) (2022-01-25)
 
 
