@@ -1,5 +1,12 @@
 # cmyr-error-collection
 
+## [1.2.10](https://github.com/CaoMeiYouRen/cmyr-error-collection/compare/v1.2.9...v1.2.10) (2022-01-28)
+
+
+### 🐛 Bug 修复
+
+* 移除 sourcemap ([206af24](https://github.com/CaoMeiYouRen/cmyr-error-collection/commit/206af24))
+
 ## [1.2.9](https://github.com/CaoMeiYouRen/cmyr-error-collection/compare/v1.2.8...v1.2.9) (2022-01-28)
 
 
