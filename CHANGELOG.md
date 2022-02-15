@@ -1,5 +1,12 @@
 # cmyr-error-collection
 
+# [1.3.0](https://github.com/CaoMeiYouRen/cmyr-error-collection/compare/v1.2.11...v1.3.0) (2022-02-15)
+
+
+### ✨ 新功能
+
+* 更换底层 ajax 请求为 fetch，减少包体积 ([465446b](https://github.com/CaoMeiYouRen/cmyr-error-collection/commit/465446b))
+
 ## [1.2.11](https://github.com/CaoMeiYouRen/cmyr-error-collection/compare/v1.2.10...v1.2.11) (2022-01-28)
 
 
