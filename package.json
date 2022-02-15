@@ -28,7 +28,7 @@
     "start": "node ./dist/index",
     "release": "semantic-release",
     "commit": "git add . && git cz",
-    "test": "ts-node test/index.test.ts",
+    "test": "ts-node-dev test/index.test.ts",
     "browser": "browser-sync start --server --index test/index.html --files \"test/index.html, dist/**/*.js\"  --open local"
   },
   "devDependencies": {
@@ -69,7 +69,7 @@
     "validate-commit-msg": "^2.14.0"
   },
   "dependencies": {
-    "axios": "0.25.0",
+    "isomorphic-unfetch": "^3.1.0",
     "md5": "^2.3.0"
   },
   "config": {

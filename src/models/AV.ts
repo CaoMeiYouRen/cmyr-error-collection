@@ -1,6 +1,6 @@
 import md5 from 'md5'
 import { SafeJsonType } from 'safe-json-type/dist/browser.esm'
-import { ajax, AjaxConfig } from '@/utils/ajax'
+import { ajax, AjaxConfig } from '@/utils/ajax2'
 
 export interface AvOption {
     appId: string
@@ -30,7 +30,7 @@ export class AV {
         }
         const timestamp = Date.now()
         return ajax({
-            baseURL: this.baseURL || 'https://yrvulqtr.api.lncldglobal.com/1.1',
+            baseURL: this.baseURL || `https://${this.appId.slice(0, 8).toLowerCase()}.api.lncldglobal.com/1.1`,
             headers: {
                 'Content-Type': 'application/json',
                 'X-LC-Id': this.appId,
