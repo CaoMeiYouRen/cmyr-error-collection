@@ -22,6 +22,8 @@ export interface AjaxConfig {
     timeout?: number
 }
 
+export type AjaxFunction = (config: AjaxConfig) => Promise<any>
+
 /**
  * 接口封装
  * @param config
@@ -39,7 +41,9 @@ export async function ajax(config: AjaxConfig) {
                 body: JSON.stringify(data),
             }).then((resp) => resp.json()),
             new Promise<void>((resolve, reject) => {
-                setTimeout(reject, timeout)
+                setTimeout(() => {
+                    reject(new Error('Ajax timeout!'))
+                }, timeout)
             }),
         ])
     } catch (error) {

@@ -1,20 +1,21 @@
 import md5 from 'md5'
 import { SafeJsonType } from 'safe-json-type/dist/browser.esm'
-import { ajax, AjaxConfig } from '@/utils/ajax2'
+import { ajax, AjaxConfig, AjaxFunction } from '@/utils/ajax2'
 
 export interface AvOption {
     appId: string
     appKey: string
     // masterKey?: string
     baseURL?: string
+    ajax?: AjaxFunction
 }
 
 export class AV {
-
     private static appId: string
     private static appKey: string
     private static baseURL?: string
     private static isInit: boolean = false
+    private static ajax: AjaxFunction = ajax
 
     public static init(option: AvOption) {
         Object.assign(this, option)
@@ -29,7 +30,7 @@ export class AV {
             throw new Error('appId 或 appKey 为空！')
         }
         const timestamp = Date.now()
-        return ajax({
+        return this.ajax({
             baseURL: this.baseURL || `https://${this.appId.slice(0, 8).toLowerCase()}.api.lncldglobal.com/1.1`,
             headers: {
                 'Content-Type': 'application/json',
