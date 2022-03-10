@@ -1,5 +1,12 @@
 # cmyr-error-collection
 
+## [1.4.1](https://github.com/CaoMeiYouRen/cmyr-error-collection/compare/v1.4.0...v1.4.1) (2022-03-10)
+
+
+### 🐛 Bug 修复
+
+* 修复 AjaxFunction 等类型导出错误问题 ([f446498](https://github.com/CaoMeiYouRen/cmyr-error-collection/commit/f446498))
+
 # [1.4.0](https://github.com/CaoMeiYouRen/cmyr-error-collection/compare/v1.3.0...v1.4.0) (2022-03-03)
 
 
