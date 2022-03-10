@@ -1,4 +1,4 @@
-import { uuid } from '@/utils/helper'
+import { uuid } from '../utils/helper'
 
 export type ErrorType = 'Web' | 'Node' | 'Unknown'
 

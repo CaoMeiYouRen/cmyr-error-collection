@@ -1,8 +1,9 @@
 import { AV, AvOption } from './models/AV'
 import { ErrorInfo, ErrorMeta, ErrorType } from './models/ErrorInfo'
+import { AjaxConfig, AjaxFunction, Method } from './utils/ajax2'
 import { errorFormat, getBrowserInfo, getCpuInfo, getRuntimeEnv } from './utils/helper'
 
-export { AvOption, ErrorInfo, errorFormat, ErrorMeta, ErrorType }
+export { AvOption, ErrorInfo, errorFormat, ErrorMeta, ErrorType, AjaxFunction, AjaxConfig, Method }
 
 export type InitOption = AvOption & {
     /**

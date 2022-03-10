@@ -1,4 +1,4 @@
-import { ErrorType } from '@/models/ErrorInfo'
+import { ErrorType } from '../models/ErrorInfo'
 
 /**
  * 只处理 Error 和 string 类型的错误，并将 string 类型的包装为 Error 类型，其余返回 null
