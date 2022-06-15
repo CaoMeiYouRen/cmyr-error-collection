@@ -1,5 +1,12 @@
 # cmyr-error-collection
 
+## [1.4.2](https://github.com/CaoMeiYouRen/cmyr-error-collection/compare/v1.4.1...v1.4.2) (2022-06-15)
+
+
+### 🐛 Bug 修复
+
+* 优化 项目结构；优化错误推送 ([8507ecb](https://github.com/CaoMeiYouRen/cmyr-error-collection/commit/8507ecb))
+
 ## [1.4.1](https://github.com/CaoMeiYouRen/cmyr-error-collection/compare/v1.4.0...v1.4.1) (2022-03-10)
 
 
