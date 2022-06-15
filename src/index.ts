@@ -1,7 +1,7 @@
 import { AV, AvOption } from './models/AV'
 import { ErrorInfo, ErrorMeta, ErrorType } from './models/ErrorInfo'
 import { AjaxConfig, AjaxFunction, Method } from './utils/ajax2'
-import { errorFormat, getBrowserInfo, getCpuInfo, getRuntimeEnv } from './utils/helper'
+import { errorFormat, getBrowserInfo, getExtraData, getRuntimeEnv } from './utils/helper'
 
 export { AvOption, ErrorInfo, errorFormat, ErrorMeta, ErrorType, AjaxFunction, AjaxConfig, Method }
 
@@ -10,10 +10,7 @@ export type InitOption = AvOption & {
      * 项目名称
      */
     projectName: string
-    /**
-     *  项目说明
-     */
-    description?: string
+
 }
 
 export class ErrorCollection {
@@ -22,17 +19,12 @@ export class ErrorCollection {
      * 项目名称
      */
     private static projectName: string
-    /**
-     *  项目说明
-     */
-    private static description?: string
 
     public static init(option: InitOption) {
-        const { projectName, description, ...avOption } = option
+        const { projectName, ...avOption } = option
         AV.init(avOption)
 
         this.projectName = projectName
-        this.description = description
 
         this.initWebErrorHandler()
         this.initNodeErrorHandler()
@@ -45,6 +37,7 @@ export class ErrorCollection {
             return false
         }
         const info = new ErrorInfo({
+            extraData: getExtraData(),
             ...meta,
             name: error.name,
             message: error.message,
@@ -83,65 +76,34 @@ export class ErrorCollection {
         ErrorCollection.pushError(error, {
             type: 'Web',
             extraData: {
+                href: location.href,
                 info,
                 browser: getBrowserInfo(),
-                href: location.href,
             },
         })
     }
 
     private static initWebErrorHandler() {
         if (typeof globalThis.addEventListener === 'function') {
-
-            const getExtraData = () => ({
-                browser: getBrowserInfo(),
-                href: location.href,
-            })
-
             globalThis.addEventListener('error', (eventError) => {
                 const error: Error | string = eventError.error || eventError.message
-                this.pushError(error, {
-                    type: 'Web',
-                    extraData: {
-                        ...getExtraData(),
-                    },
-                })
+                this.pushError(error)
             }, true)
-
             globalThis.addEventListener('unhandledrejection', (event) => {
                 const error: Error = event.reason
-                this.pushError(error, {
-                    type: 'Web',
-                    extraData: {
-                        ...getExtraData(),
-                    },
-                })
+                this.pushError(error)
             }, true)
         }
     }
 
     private static initNodeErrorHandler() {
         if (globalThis.process && typeof globalThis.process.on === 'function') {
-
             globalThis.process.on('uncaughtException', (error) => {
-                this.pushError(error, {
-                    type: 'Node',
-                    extraData: {
-                        nodeVersion: process.versions.node,
-                        os: getCpuInfo(),
-                    },
-                })
+                this.pushError(error)
             })
-
             globalThis.process.on('unhandledRejection', (reason: any) => {
                 const error: Error = reason
-                this.pushError(error, {
-                    type: 'Node',
-                    extraData: {
-                        nodeVersion: process.versions.node,
-                        os: getCpuInfo(),
-                    },
-                })
+                this.pushError(error)
             })
         }
     }

@@ -71,3 +71,27 @@ export function uuid() {
         return v.toString(16)
     })
 }
+/**
+ * 获取附加数据
+ *
+ * @author CaoMeiYouRen
+ * @date 2022-06-16
+ * @export
+ */
+export function getExtraData() {
+    const type = getRuntimeEnv()
+    switch (type) {
+        case 'Web':
+            return {
+                href: location.href,
+                browser: getBrowserInfo(),
+            }
+        case 'Node':
+            return {
+                nodeVersion: process.versions.node,
+                os: getCpuInfo(),
+            }
+        default:
+            return {}
+    }
+}
