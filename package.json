@@ -20,7 +20,7 @@
     "build": "cross-env NODE_ENV=production rollup -c",
     "postbuild": "npm run build:type",
     "build:type": "api-extractor run",
-    "postbuild:type": "rimraf \"dist/**/!(*.js?(.map)|index.d.ts)\"",
+    "postbuild:type": "rimraf \"dist/**/!(*.?(c|m)js?(.map)|index.d.ts|custom.d.ts)\"",
     "analyzer": "cross-env NODE_ENV=production ANALYZER=true rollup -c",
     "dev": "cross-env NODE_ENV=development ts-node-dev src/index.ts",
     "dev:rollup": "cross-env NODE_ENV=development rollup -c -w",

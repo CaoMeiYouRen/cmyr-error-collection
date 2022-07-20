@@ -27,6 +27,9 @@ export function getBrowserInfo() {
 }
 
 export function getCpuInfo() {
+    if (typeof require !== 'function') {
+        return {}
+    }
     // eslint-disable-next-line @typescript-eslint/no-var-requires
     const os = require('os')
     const hostname = os.hostname() // 操作系统的主机名

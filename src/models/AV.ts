@@ -6,7 +6,20 @@ export interface AvOption {
     appId: string
     appKey: string
     // masterKey?: string
+    /**
+     * rest api 地址，例如：https://api.example.com/1.1
+     *
+     * @author CaoMeiYouRen
+     * @date 2022-07-20
+     */
     baseURL?: string
+    /**
+     * rest api 基础地址，例如：https://api.example.com，和 baseURL 的不同之处在于只需要域名部分即可
+     *
+     * @author CaoMeiYouRen
+     * @date 2022-07-20
+     */
+    serverURL?: string
     ajax?: AjaxFunction
 }
 
@@ -14,24 +27,38 @@ export class AV {
     private static appId: string
     private static appKey: string
     private static baseURL?: string
+    private static serverURL?: string
     private static isInit: boolean = false
-    private static ajax: AjaxFunction = ajax
+    private static ajax: AjaxFunction
 
     public static init(option: AvOption) {
         Object.assign(this, option)
         this.isInit = true
     }
 
+    public static setAjax(_ajax: AjaxFunction) {
+        this.ajax = _ajax
+    }
+
     public static async request(config: AjaxConfig) {
         if (!this.isInit) {
             throw new Error('cmyr-error-collection 未初始化！')
         }
+        if (!this.ajax) {
+            throw new Error('ajax 未初始化！')
+        }
         if (!this.appId || !this.appKey) {
             throw new Error('appId 或 appKey 为空！')
         }
+        let baseURL = `https://${this.appId.slice(0, 8).toLowerCase()}.api.lncldglobal.com/1.1`
+        if (this.serverURL) {
+            baseURL = `${this.serverURL}/1.1`
+        } else if (this.baseURL) {
+            baseURL = this.baseURL
+        }
         const timestamp = Date.now()
         return this.ajax({
-            baseURL: this.baseURL || `https://${this.appId.slice(0, 8).toLowerCase()}.api.lncldglobal.com/1.1`,
+            baseURL,
             headers: {
                 'Content-Type': 'application/json',
                 'X-LC-Id': this.appId,

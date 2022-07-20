@@ -156,4 +156,27 @@ export default defineConfig([
             isMin: true,
         }),
     },
+    {
+        input: 'src/custom.ts',
+        external,
+        output: [
+            {
+                file: 'dist/custom.cjs', // 生成 cjs
+                format: 'cjs',
+                name: outputName,
+                sourcemap: false,
+            },
+            {
+                file: 'dist/custom.mjs', // 生成 esm
+                format: 'esm',
+                name: outputName,
+                sourcemap: false,
+            },
+        ],
+        plugins: getPlugins({
+            isBrowser: false,
+            isDeclaration: false,
+            isMin: false,
+        }),
+    },
 ])
