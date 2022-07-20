@@ -1,5 +1,12 @@
 # cmyr-error-collection
 
+# [1.5.0](https://github.com/CaoMeiYouRen/cmyr-error-collection/compare/v1.4.2...v1.5.0) (2022-07-20)
+
+
+### ✨ 新功能
+
+* 优化 ajax 自定义功能 ([61a4a3d](https://github.com/CaoMeiYouRen/cmyr-error-collection/commit/61a4a3d))
+
 ## [1.4.2](https://github.com/CaoMeiYouRen/cmyr-error-collection/compare/v1.4.1...v1.4.2) (2022-06-15)
 
 
