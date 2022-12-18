@@ -4,7 +4,7 @@
     <img alt="Version" src="https://img.shields.io/npm/v/cmyr-error-collection.svg">
   </a>
   <a href="https://github.com/CaoMeiYouRen/error-collection/actions?query=workflow%3ARelease" target="_blank">
-    <img alt="GitHub Workflow Status" src="https://img.shields.io/github/workflow/status/CaoMeiYouRen/error-collection/Release" /></a>
+    <img alt="GitHub Workflow Status" src="https://img.shields.io/github/actions/workflow/status/CaoMeiYouRen/error-collection/release.yml?branch=master" /></a>
   <img alt="node-current"  src="https://img.shields.io/node/v/cmyr-error-collection" />
   <a href="https://github.com/CaoMeiYouRen/error-collection" target="_blank">
     <img alt="Documentation" src="https://img.shields.io/badge/documentation-yes-brightgreen.svg" />
@@ -62,7 +62,7 @@ ErrorCollection.init({
 
 ## 🤝贡献
 
-欢迎Contributions, issues and feature!<br />如有问题请查看 [issues page](https://github.com/CaoMeiYouRen/error-collection/issues). 
+欢迎 Contributions, issues and feature!<br />如有问题请查看 [issues page](https://github.com/CaoMeiYouRen/error-collection/issues). 
 
 ## 支持
 
