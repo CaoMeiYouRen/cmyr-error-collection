@@ -1,6 +1,6 @@
 import md5 from 'md5'
 import { SafeJsonType } from 'safe-json-type/dist/browser.esm'
-import { ajax, AjaxConfig, AjaxFunction } from '../utils/ajax2'
+import { AjaxConfig, AjaxFunction } from '../utils/ajax2'
 
 export interface AvOption {
     appId: string
@@ -20,6 +20,14 @@ export interface AvOption {
      * @date 2022-07-20
      */
     serverURL?: string
+    /**
+     * 提交数据的地址，例如 https://api.example.com/1.1/classes/ErrorInfo。该地址为最高优先级，可自定义地址，然后处理提交的数据。提交方式为 POST
+     *
+     * @author CaoMeiYouRen
+     * @date 2023-02-27
+     */
+    createObjectURL?: string
+
     ajax?: AjaxFunction
 }
 
@@ -28,6 +36,7 @@ export class AV {
     private static appKey: string
     private static baseURL?: string
     private static serverURL?: string
+    private static createObjectURL?: string
     private static isInit: boolean = false
     private static ajax: AjaxFunction
 
@@ -47,8 +56,10 @@ export class AV {
         if (!this.ajax) {
             throw new Error('ajax 未初始化！')
         }
-        if (!this.appId || !this.appKey) {
-            throw new Error('appId 或 appKey 为空！')
+        if (!this.createObjectURL) {
+            if (!this.appId || !this.appKey) {
+                throw new Error('appId 或 appKey 为空！')
+            }
         }
         let baseURL = `https://${this.appId.slice(0, 8).toLowerCase()}.api.lncldglobal.com/1.1`
         if (this.serverURL) {
@@ -70,7 +81,7 @@ export class AV {
 
     public static async createObject(className: string, obj: Record<string, unknown>) {
         return this.request({
-            url: `/classes/${className}`,
+            url: this.createObjectURL || `/classes/${className}`,
             method: 'POST',
             data: SafeJsonType.toSafeJson(obj),
         })

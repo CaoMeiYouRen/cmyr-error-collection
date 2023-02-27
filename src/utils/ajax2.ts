@@ -31,8 +31,9 @@ export type AjaxFunction = (config: AjaxConfig) => Promise<any>
  */
 export async function ajax(config: AjaxConfig) {
     try {
-        const { url, query = {}, data = {}, method = 'GET', headers = {}, baseURL, timeout = 10000 } = config
-        const _url = new URL(baseURL + url, baseURL)
+        const { url, query = {}, data = {}, method = 'GET', headers = {}, baseURL = '', timeout = 10000 } = config
+        const isFullURL = url.startsWith('https://') || url.startsWith('http://')
+        const _url = isFullURL ? new URL(url, baseURL) : new URL(baseURL + url, baseURL)
         _url.search = new URLSearchParams(query).toString()
         return Promise.race([
             fetch(_url.toString(), {

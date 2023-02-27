@@ -14,6 +14,8 @@
   </a>
 </p>
 > 一个基于 leancloud 的简易全局错误捕获工具，会将未全局捕获的错误上报到 leancloud。
+>
+> 也可以自定义上报的地址。
 
 ### 🏠 [主页](https://github.com/CaoMeiYouRen/error-collection)
 
@@ -49,6 +51,7 @@ ErrorCollection.init({
     projectName: '测试browser',
     appId: 'xxxxx',
     appKey: 'yyyy',
+    // createObjectURL?: string。提交数据的地址，例如 https://api.example.com/1.1/classes/ErrorInfo。该地址为最高优先级，可自定义地址，然后处理提交的数据。提交方式为 POST
 })
 ```
 

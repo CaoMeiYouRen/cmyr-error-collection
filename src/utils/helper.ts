@@ -16,6 +16,9 @@ export function errorFormat(error: unknown): Error | null {
 }
 
 export function getBrowserInfo() {
+    if (typeof globalThis.window !== 'object') {
+        return {}
+    }
     return {
         appCodeName: navigator.appCodeName,
         appName: navigator.appName,

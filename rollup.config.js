@@ -8,7 +8,7 @@ import replace from '@rollup/plugin-replace'
 import { upperFirst, camelCase } from 'lodash'
 import { dependencies, peerDependencies, name } from './package.json'
 import { defineConfig } from 'rollup'
-const external = [...Object.keys({ ...dependencies, ...peerDependencies })]// 默认不打包 dependencies, peerDependencies
+const external = ['colors', 'parse-json', 'fast-safe-stringify', ...Object.keys({ ...dependencies, ...peerDependencies })]// 默认不打包 dependencies, peerDependencies
 const outputName = upperFirst(camelCase(name))// 导出的模块名称 PascalCase
 const env = process.env
 const __PROD__ = env.NODE_ENV === 'production'

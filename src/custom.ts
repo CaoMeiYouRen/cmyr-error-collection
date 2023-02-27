@@ -1,7 +1,7 @@
 import { AV, AvOption } from './models/AV'
 import { ErrorInfo, ErrorMeta, ErrorType } from './models/ErrorInfo'
-import { AjaxFunction, AjaxConfig, Method, ajax } from './utils/ajax2'
-import { errorFormat } from './utils/helper'
+import { AjaxFunction, AjaxConfig, Method } from './utils/ajax2'
+import { errorFormat, getBrowserInfo, getCpuInfo, getExtraData, getRuntimeEnv } from './utils/helper'
 
-export { AvOption, ErrorInfo, errorFormat, ErrorMeta, ErrorType, AjaxFunction, AjaxConfig, Method }
+export { AV, AvOption, ErrorInfo, errorFormat, getBrowserInfo, getCpuInfo, getRuntimeEnv, getExtraData, ErrorMeta, ErrorType, AjaxFunction, AjaxConfig, Method }
 export * from './models/ErrorCollection'
