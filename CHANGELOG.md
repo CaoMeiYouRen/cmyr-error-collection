@@ -1,5 +1,12 @@
 # cmyr-error-collection
 
+## [1.6.1](https://github.com/CaoMeiYouRen/cmyr-error-collection/compare/v1.6.0...v1.6.1) (2023-02-28)
+
+
+### 🐛 Bug 修复
+
+* 优化 safe-json-type 的导入 ([cbe0d73](https://github.com/CaoMeiYouRen/cmyr-error-collection/commit/cbe0d73))
+
 # [1.6.0](https://github.com/CaoMeiYouRen/cmyr-error-collection/compare/v1.5.0...v1.6.0) (2023-02-27)
 
 
