@@ -1,5 +1,12 @@
 # cmyr-error-collection
 
+# [1.6.0](https://github.com/CaoMeiYouRen/cmyr-error-collection/compare/v1.5.0...v1.6.0) (2023-02-27)
+
+
+### ✨ 新功能
+
+* 新增 支持自定义上报地址；增加了工具函数的导出 ([7647ccb](https://github.com/CaoMeiYouRen/cmyr-error-collection/commit/7647ccb))
+
 # [1.5.0](https://github.com/CaoMeiYouRen/cmyr-error-collection/compare/v1.4.2...v1.5.0) (2022-07-20)
 
 
