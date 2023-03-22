@@ -35,15 +35,18 @@ export async function ajax(config: AjaxConfig) {
         const isFullURL = url.startsWith('https://') || url.startsWith('http://')
         const _url = isFullURL ? new URL(url, baseURL) : new URL(baseURL + url, baseURL)
         _url.search = new URLSearchParams(query).toString()
+        const controller = new AbortController()
         return Promise.race([
             fetch(_url.toString(), {
                 method,
                 headers,
                 body: JSON.stringify(data),
+                signal: controller.signal,
             }).then((resp) => resp.json()),
             new Promise<void>((resolve, reject) => {
                 setTimeout(() => {
                     reject(new Error('Ajax timeout!'))
+                    controller.abort(new Error('Ajax timeout!'))
                 }, timeout)
             }),
         ])
