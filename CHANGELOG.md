@@ -1,5 +1,12 @@
 # cmyr-error-collection
 
+# [1.7.0](https://github.com/CaoMeiYouRen/cmyr-error-collection/compare/v1.6.3...v1.7.0) (2023-03-22)
+
+
+### ✨ 新功能
+
+* 更新 依赖版本；优化 AbortController 的 兼容性 ([c16b565](https://github.com/CaoMeiYouRen/cmyr-error-collection/commit/c16b565))
+
 ## [1.6.3](https://github.com/CaoMeiYouRen/cmyr-error-collection/compare/v1.6.2...v1.6.3) (2023-03-22)
 
 
