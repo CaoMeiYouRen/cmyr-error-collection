@@ -1,5 +1,12 @@
 # cmyr-error-collection
 
+## [1.6.3](https://github.com/CaoMeiYouRen/cmyr-error-collection/compare/v1.6.2...v1.6.3) (2023-03-22)
+
+
+### 🐛 Bug 修复
+
+* 修复 dependencies 缺失 safe-json-type 的 bug；优化 ajax 新增 AbortController ([4704fe8](https://github.com/CaoMeiYouRen/cmyr-error-collection/commit/4704fe8))
+
 ## [1.6.2](https://github.com/CaoMeiYouRen/cmyr-error-collection/compare/v1.6.1...v1.6.2) (2023-03-08)
 
 
