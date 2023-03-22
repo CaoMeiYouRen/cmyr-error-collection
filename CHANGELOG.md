@@ -1,5 +1,12 @@
 # cmyr-error-collection
 
+## [1.6.2](https://github.com/CaoMeiYouRen/cmyr-error-collection/compare/v1.6.1...v1.6.2) (2023-03-08)
+
+
+### 🐛 Bug 修复
+
+* 回退 safe-json-type 的导入相关改动 ([ed1ddea](https://github.com/CaoMeiYouRen/cmyr-error-collection/commit/ed1ddea))
+
 ## [1.6.1](https://github.com/CaoMeiYouRen/cmyr-error-collection/compare/v1.6.0...v1.6.1) (2023-02-28)
 
 
