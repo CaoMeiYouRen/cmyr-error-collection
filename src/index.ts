@@ -3,3 +3,5 @@ import { ajax } from './utils/ajax2'
 export * from './custom'
 
 AV.setAjax(ajax)
+
+export { ajax }

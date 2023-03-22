@@ -1,4 +1,5 @@
 import fetch from 'isomorphic-unfetch'
+import { AbortController } from 'node-abort-controller'
 
 export type Method =
     | 'get' | 'GET'
@@ -41,7 +42,7 @@ export async function ajax(config: AjaxConfig) {
                 method,
                 headers,
                 body: JSON.stringify(data),
-                signal: controller.signal,
+                signal: controller.signal as AbortSignal,
             }).then((resp) => resp.json()),
             new Promise<void>((resolve, reject) => {
                 setTimeout(() => {

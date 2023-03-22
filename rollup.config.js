@@ -86,42 +86,20 @@ export default defineConfig([
     {
         input: 'src/index.ts',
         external,
-        output: {
-            file: 'dist/index.js', // 生成 cjs
-            format: 'cjs',
-            name: outputName,
-            sourcemap: false,
-        },
-        plugins: getPlugins({
-            isBrowser: false,
-            isDeclaration: false,
-            isMin: false,
-        }),
-    },
-    {
-        input: 'src/index.ts',
-        // external,
-        output: {
-            file: 'dist/index.umd.js', // 生成 umd
-            format: 'umd',
-            name: outputName,
-            sourcemap: false,
-        },
-        plugins: getPlugins({
-            isBrowser: true,
-            isDeclaration: false,
-            isMin: true,
-        }),
-    },
-    {
-        input: 'src/index.ts',
-        external,
-        output: {
-            file: 'dist/index.esm.js', // 生成 esm
-            format: 'esm',
-            name: outputName,
-            sourcemap: false,
-        },
+        output: [
+            {
+                file: 'dist/index.js', // 生成 cjs
+                format: 'cjs',
+                name: outputName,
+                sourcemap: false,
+            },
+            {
+                file: 'dist/index.esm.js', // 生成 esm
+                format: 'esm',
+                name: outputName,
+                sourcemap: false,
+            },
+        ],
         plugins: getPlugins({
             isBrowser: false,
             isDeclaration: false,
@@ -144,12 +122,21 @@ export default defineConfig([
     },
     {
         input: 'src/index.ts',
-        output: {
-            file: 'dist/index.esm.browser.min.js', // 生成 esm browser
-            format: 'esm',
-            name: outputName,
-            sourcemap: false,
-        },
+        // external,
+        output: [
+            {
+                file: 'dist/index.umd.js', // 生成 umd
+                format: 'umd',
+                name: outputName,
+                sourcemap: false,
+            },
+            {
+                file: 'dist/index.esm.browser.min.js', // 生成 esm browser min
+                format: 'esm',
+                name: outputName,
+                sourcemap: false,
+            },
+        ],
         plugins: getPlugins({
             isBrowser: true,
             isDeclaration: false,
