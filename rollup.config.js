@@ -5,6 +5,7 @@ import typescript from '@rollup/plugin-typescript'
 import json from '@rollup/plugin-json'
 import analyzer from 'rollup-plugin-analyzer'
 import replace from '@rollup/plugin-replace'
+import dts from 'rollup-plugin-dts'
 import { upperFirst, camelCase } from 'lodash'
 import { dependencies, peerDependencies, name } from './package.json'
 import { defineConfig } from 'rollup'
@@ -75,26 +76,31 @@ export default defineConfig([
             dir: 'dist',
             format: 'esm',
             name: outputName,
-
         },
-        plugins: getPlugins({
-            isBrowser: false,
-            isDeclaration: true,
-            isMin: false,
-        }),
+        plugins: [dts()],
+    },
+    {
+        input: 'src/custom.ts', // 生成类型文件
+        external,
+        output: {
+            dir: 'dist',
+            format: 'esm',
+            name: outputName,
+        },
+        plugins: [dts()],
     },
     {
         input: 'src/index.ts',
         external,
         output: [
             {
-                file: 'dist/index.js', // 生成 cjs
+                file: 'dist/index.cjs', // 生成 cjs
                 format: 'cjs',
                 name: outputName,
                 sourcemap: false,
             },
             {
-                file: 'dist/index.esm.js', // 生成 esm
+                file: 'dist/index.mjs', // 生成 esm
                 format: 'esm',
                 name: outputName,
                 sourcemap: false,
