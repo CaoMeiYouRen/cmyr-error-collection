@@ -1,5 +1,12 @@
 # cmyr-error-collection
 
+## [1.7.1](https://github.com/CaoMeiYouRen/cmyr-error-collection/compare/v1.7.0...v1.7.1) (2024-09-29)
+
+
+### 🐛 Bug 修复
+
+* 修复 rollup 引起的 XSS 漏洞问题；更新 GitHub workflows；迁移到 pnpm；更新部分依赖 ([5375699](https://github.com/CaoMeiYouRen/cmyr-error-collection/commit/5375699))
+
 # [1.7.0](https://github.com/CaoMeiYouRen/cmyr-error-collection/compare/v1.6.3...v1.7.0) (2023-03-22)
 
 
