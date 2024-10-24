@@ -60,6 +60,7 @@
     "conventional-changelog-cmyr-config": "^1.2.3",
     "cross-env": "^7.0.3",
     "cz-conventional-changelog": "^3.3.0",
+    "cz-conventional-changelog-cmyr": "^1.1.1",
     "debug": "^4.3.2",
     "eslint": "^7.32.0",
     "eslint-config-cmyr": "^1.1.24",
@@ -86,7 +87,7 @@
   },
   "config": {
     "commitizen": {
-      "path": "cz-conventional-changelog"
+      "path": "cz-conventional-changelog-cmyr"
     }
   },
   "changelog": {

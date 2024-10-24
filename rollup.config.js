@@ -125,6 +125,7 @@ export default defineConfig([
             isDeclaration: false,
             isMin: false,
         }),
+        inlineDynamicImports: true,
     },
     {
         input: 'src/index.ts',
@@ -148,6 +149,7 @@ export default defineConfig([
             isDeclaration: false,
             isMin: true,
         }),
+        inlineDynamicImports: true,
     },
     {
         input: 'src/custom.ts',
