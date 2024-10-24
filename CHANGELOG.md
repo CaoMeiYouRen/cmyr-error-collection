@@ -1,5 +1,12 @@
 # cmyr-error-collection
 
+## [1.7.2](https://github.com/CaoMeiYouRen/cmyr-error-collection/compare/v1.7.1...v1.7.2) (2024-10-24)
+
+
+### 🐛 Bug 修复
+
+* 修复 部分情况下 AbortController 无效的问题 ([0496867](https://github.com/CaoMeiYouRen/cmyr-error-collection/commit/0496867))
+
 ## [1.7.1](https://github.com/CaoMeiYouRen/cmyr-error-collection/compare/v1.7.0...v1.7.1) (2024-09-29)
 
 
